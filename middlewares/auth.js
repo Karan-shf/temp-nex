@@ -1,6 +1,8 @@
-import { jwtSecret } from "../startup/config.js";
-import { User } from "../models/user.js";
+import { jwtSecret } from "../utilities/config/config.js";
+// import { User } from "../Domain/models/user.js";
 import jwt from "jsonwebtoken";
+import { userReadByID } from "../Infrastructure/user.js";
+
 
 export default async function(req, res, next) {
     const token = req.header("x-auth-token");
@@ -8,7 +10,8 @@ export default async function(req, res, next) {
 
     try {
         const decoded = jwt.verify(token, jwtSecret);
-        const user = await User.findByPk(decoded._id)
+        // const user = await User.findByPk(decoded._id);
+        const user = await userReadByID(decoded._id);
         req.user = user.toJSON();
         next();
     } catch (error) {

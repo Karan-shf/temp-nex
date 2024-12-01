@@ -1,4 +1,4 @@
-import logger from "../startup/logging.js"
+import logger from "../utilities/loggers/generalLogger.js"
 
 export default function(err, req, res, next) {
     logger.error(err.message, err);

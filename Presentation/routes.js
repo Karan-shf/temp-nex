@@ -1,8 +1,9 @@
 import express from "express";
 import morgan from "morgan";
-import users from "../routes/users.js";
+import users from "./routes/user.js";
 import error from "../middlewares/error.js";
-import logger from "./logging.js";
+import cors from "../middlewares/cors.js";
+import logger from "../utilities/loggers/generalLogger.js";
 
 export default function(app) {
 
@@ -13,6 +14,7 @@ export default function(app) {
 
     app.use(express.json());
     app.use(express.urlencoded({ extended: true })); 
+    app.use(cors);
 
     app.use("/IAM", users);
 
