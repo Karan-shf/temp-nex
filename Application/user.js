@@ -57,15 +57,17 @@ export async function me(req,res) {
 
 export async function checkEmail(req,res) {
     if (req.body.email==="") return res.status(400).send("no email provided");
-    const user = await userRead({ email: req.body.email });
+    let user = await userRead({ email: req.body.email });
+    user = user[0];
     if (user) return res.status(400).json({"message": "the given email is already taken", "success": false});
     return res.json({"success": true});
 }
 
 export async function checkUsername (req,res) {
     if (req.body.username==="") return res.status(400).send("no username provided");
-    // const user = await User.findOne({ where: { username: req.body.username} });
-    const user = await userRead({ username: req.body.username});
+    // let user = await User.findOne({ where: { username: req.body.username} });
+    let user = await userRead({ username: req.body.username});
+    user = user[0];
     if (user) return res.status(400).json({"message": "the given username is already taken", "success": false});
     return res.json({"success": true});
 }
