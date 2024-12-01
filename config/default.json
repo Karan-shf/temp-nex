@@ -1,0 +1,16 @@
+{
+  "app": {
+    "port": 8000
+  },
+  "db": {
+    "postgres": {
+      "host": "localhost",
+      "port": 5432,
+      "name": "Nex",
+      "user": "postgres",
+      "password": "admin",
+      "dialect": "postgres"
+    }
+  },
+  "jwtSecret": "bODcfUiE_GPWvhQN3gHi88ysdC09-ef64-5SGE_GSks="
+}
