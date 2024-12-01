@@ -175,4 +175,4 @@ export const User = sequelize.define('User', userSchema);
 //     return schema.validate(user);
 // } 
 
-User.sync({alter:true}).then(() => logger.info("User Model Synced")).catch((ex) => console.error(ex));
+User.sync({alter:true}).then(() => logger.info("User Model Synced")).catch((ex) => logger.error(ex.message, ex));

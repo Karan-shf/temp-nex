@@ -23,7 +23,8 @@ export default function(user) {
         birthDate: Joi.date().required(),
         profilePic: Joi.objectId(),
         username: Joi.string().max(20).required(),
-        aboutUser: Joi.string().max(160)
+        aboutUser: Joi.string().max(160),
+        verificationCode: Joi.string().length(8).required()
     });
 
     return schema.validate(user);

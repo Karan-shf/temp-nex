@@ -12,5 +12,9 @@
       "dialect": "postgres"
     }
   },
+  "nodeMailer": {
+    "emailName": "team.float.dev@gmail.com",
+    "emailAppPassword": "mupwozehpayeisap"
+  },
   "jwtSecret": "bODcfUiE_GPWvhQN3gHi88ysdC09-ef64-5SGE_GSks="
 }

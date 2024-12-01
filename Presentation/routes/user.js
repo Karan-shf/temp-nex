@@ -6,7 +6,7 @@ import { Router } from "express";
 import auth from "../../middlewares/auth.js";
 // import { userCreate, userRead } from "../../Infrastructure/user.js";
 // import multer from "mu"
-import { userRegister, userLogin, me, checkEmail, checkUsername } from "../../Application/user.js";
+import { userRegister, userLogin, me, checkEmail, checkUsername, sendVerificationEmail } from "../../Application/user.js";
 
 const router = Router();
 
@@ -14,11 +14,14 @@ router.post("/register", userRegister);
 
 router.post("/login",  userLogin);
 
-router.post("/me",auth, me);
-
 router.post("/check/email", checkEmail);
 
 router.post("/check/username", checkUsername);
 
+router.get("/me",auth, me);
+
+router.post("/otp/sendEmail", sendVerificationEmail);
+
+// router.post("/otp/checkEmail", checkVerificationEmail);
 
 export default router;
